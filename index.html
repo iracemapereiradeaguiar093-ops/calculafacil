@@ -59,7 +59,7 @@
             display: block;
             font-size: 20px;
             font-weight: bold;
-            margin: 25px 0 8px;
+            margin: 20px 0 8px;
         }
 
         input {
@@ -158,6 +158,42 @@
 
     </div>
 
+
+    <!-- CALCULADORA DE MÉDIA -->
+
+    <div class="card">
+
+        <h2>Calculadora de Média</h2>
+
+        <p>
+            Introduz as notas que quiseres. Os campos que ficarem vazios serão ignorados.
+        </p>
+
+        <label for="nota1">Nota 1</label>
+        <input type="number" id="nota1" placeholder="Ex: 15">
+
+        <label for="nota2">Nota 2</label>
+        <input type="number" id="nota2" placeholder="Ex: 17">
+
+        <label for="nota3">Nota 3</label>
+        <input type="number" id="nota3" placeholder="Ex: 13">
+
+        <label for="nota4">Nota 4</label>
+        <input type="number" id="nota4" placeholder="Ex: 16">
+
+        <label for="nota5">Nota 5</label>
+        <input type="number" id="nota5" placeholder="Ex: 14">
+
+        <button onclick="calcularMedia()">
+            Calcular média
+        </button>
+
+        <div class="resultado" id="resultadoMedia">
+            Média: —
+        </div>
+
+    </div>
+
 </main>
 
 <footer>
@@ -213,6 +249,40 @@
         document.getElementById("resultadoDesconto").innerText =
             "Desconto: " + valorDesconto.toFixed(2) +
             " € | Preço final: " + precoFinal.toFixed(2) + " €";
+    }
+
+
+    function calcularMedia() {
+
+        let notas = [];
+
+        for (let i = 1; i <= 5; i++) {
+
+            let valor = document.getElementById("nota" + i).value;
+
+            if (valor !== "") {
+                notas.push(Number(valor));
+            }
+        }
+
+        if (notas.length === 0) {
+
+            document.getElementById("resultadoMedia").innerText =
+                "Introduz pelo menos uma nota.";
+
+            return;
+        }
+
+        let soma = 0;
+
+        for (let nota of notas) {
+            soma += nota;
+        }
+
+        let media = soma / notas.length;
+
+        document.getElementById("resultadoMedia").innerText =
+            "Média: " + media.toFixed(2);
     }
 
 </script>
