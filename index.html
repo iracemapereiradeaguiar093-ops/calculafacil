@@ -1,38 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CalculaFácil</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CalculaFácil</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f1f5f9;
+        color: #1e293b;
+    }
+
+    header {
+        background: #2563eb;
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 36px;
+    }
+
+    header p {
+        margin: 10px 0 0;
+        font-size: 17px;
+    }
+
+    main {
+        max-width: 600px;
+        margin: 30px auto;
+        padding: 0 20px;
+    }
+
+    .card {
+        background: white;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+        margin-top: 0;
+        color: #1d4ed8;
+    }
+
+    label {
+        display: block;
+        margin-top: 18px;
+        margin-bottom: 6px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 14px;
+        font-size: 17px;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+    }
+
+    input:focus {
+        outline: 2px solid #2563eb;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 20px;
+        padding: 14px;
+        font-size: 17px;
+        font-weight: bold;
+        color: white;
+        background: #2563eb;
+        border: none;
+        border-radius: 10px;
+    }
+
+    button:active {
+        transform: scale(0.98);
+    }
+
+    #resultado {
+        margin-top: 20px;
+        padding: 15px;
+        background: #eff6ff;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #1d4ed8;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px;
+        color: #64748b;
+        font-size: 14px;
+    }
+</style>
 </head>
 
 <body>
 
+<header>
     <h1>CalculaFácil</h1>
-
     <p>Ferramentas gratuitas para facilitar o teu dia.</p>
+</header>
 
-    <h2>Calculadora de Percentagem</h2>
+<main>
 
-    <input type="number" id="percentagem" placeholder="Percentagem">
+    <div class="card">
 
-    <input type="number" id="numero" placeholder="Número">
+        <h2>Calculadora de Percentagem</h2>
 
-    <button onclick="calcular()">Calcular</button>
+        <label for="percentagem">Percentagem</label>
+        <input type="number" id="percentagem" placeholder="Ex.: 20">
 
-    <p id="resultado"></p>
+        <label for="numero">Número</label>
+        <input type="number" id="numero" placeholder="Ex.: 150">
 
-    <script>
-        function calcular() {
-            let percentagem = document.getElementById("percentagem").value;
-            let numero = document.getElementById("numero").value;
+        <button onclick="calcular()">Calcular</button>
 
-            let resultado = (percentagem / 100) * numero;
+        <p id="resultado"></p>
 
-            document.getElementById("resultado").innerText =
-                "Resultado: " + resultado;
-        }
-    </script>
+    </div>
+
+</main>
+
+<footer>
+    © 2026 CalculaFácil — Ferramentas online gratuitas
+</footer>
+
+<script>
+function calcular() {
+
+    let percentagem = document.getElementById("percentagem").value;
+    let numero = document.getElementById("numero").value;
+
+    if (percentagem === "" || numero === "") {
+        document.getElementById("resultado").innerText =
+            "Preenche os dois campos.";
+        return;
+    }
+
+    let resultado = (percentagem / 100) * numero;
+
+    document.getElementById("resultado").innerText =
+        "Resultado: " + resultado;
+}
+</script>
 
 </body>
-</html>
+    </html>
