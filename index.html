@@ -1,291 +1,1298 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CalculaFácil - Calculadoras Online Gratuitas</title>
+<title>CalculaFácil - Ferramentas Online Gratuitas</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<meta name="description" content="CalculaFácil - calculadoras e ferramentas online gratuitas para facilitar o teu dia.">
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f1f5f9;
-            color: #172033;
-        }
+<style>
 
-        header {
-            background: #2864e8;
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 46px;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        header p {
-            font-size: 22px;
-            margin: 25px 0 0;
-        }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #172033;
+    transition: 0.3s;
+}
 
-        main {
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+header {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
 
-        .card {
-            background: white;
-            padding: 35px;
-            margin-bottom: 30px;
-            border-radius: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
+header h1 {
+    font-size: 42px;
+    margin: 0 0 10px;
+}
 
-        h2 {
-            color: #2864e8;
-            font-size: 32px;
-            margin-top: 0;
-        }
+header p {
+    font-size: 19px;
+    margin: 0;
+}
 
-        label {
-            display: block;
-            font-size: 20px;
-            font-weight: bold;
-            margin: 20px 0 8px;
-        }
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    padding: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
 
-        input {
-            width: 100%;
-            padding: 18px;
-            font-size: 20px;
-            border: 2px solid #d5dbe5;
-            border-radius: 18px;
-        }
+.topbar button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-        button {
-            width: 100%;
-            margin-top: 25px;
-            padding: 18px;
-            border: none;
-            border-radius: 18px;
-            background: #2864e8;
-            color: white;
-            font-size: 22px;
-            font-weight: bold;
-        }
+.topbar button:hover {
+    opacity: 0.9;
+}
 
-        button:active {
-            transform: scale(0.98);
-        }
+.search {
+    max-width: 700px;
+    margin: 25px auto;
+    padding: 0 20px;
+}
 
-        .resultado {
-            margin-top: 25px;
-            padding: 20px;
-            background: #edf4ff;
-            border-radius: 18px;
-            color: #2864e8;
-            font-size: 22px;
-            font-weight: bold;
-        }
+.search input {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #dbe3ef;
+    border-radius: 14px;
+    font-size: 17px;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #64748b;
-        }
-    </style>
+.container {
+    max-width: 950px;
+    margin: auto;
+    padding: 20px;
+}
+
+.tool {
+    background: white;
+    margin-bottom: 25px;
+    padding: 28px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+}
+
+.tool h2 {
+    color: #2563eb;
+    font-size: 28px;
+    margin-top: 0;
+}
+
+.tool p {
+    line-height: 1.5;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 7px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #d5dce7;
+    border-radius: 12px;
+    font-size: 17px;
+    background: white;
+}
+
+textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+button.action {
+    width: 100%;
+    margin-top: 18px;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.action:hover {
+    background: #1d4ed8;
+}
+
+.result {
+    margin-top: 18px;
+    padding: 18px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-radius: 14px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.tool.hidden {
+    display: none;
+}
+
+.timer {
+    text-align: center;
+    font-size: 55px;
+    font-weight: bold;
+    color: #2563eb;
+    margin: 20px 0;
+}
+
+.password {
+    word-break: break-all;
+    font-size: 20px;
+}
+
+footer {
+    background: #172033;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 7px;
+}
+
+.dark {
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+.dark .tool {
+    background: #1e293b;
+}
+
+.dark .topbar {
+    background: #1e293b;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+    background: #0f172a;
+    color: white;
+    border-color: #475569;
+}
+
+.dark .result {
+    background: #172554;
+    color: #bfdbfe;
+}
+
+.dark .search input {
+    background: #1e293b;
+    color: white;
+}
+
+@media(max-width: 650px) {
+
+    header h1 {
+        font-size: 35px;
+    }
+
+    header p {
+        font-size: 17px;
+    }
+
+    .tool {
+        padding: 22px;
+    }
+
+    .tool h2 {
+        font-size: 25px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>CalculaFácil</h1>
-    <p>Ferramentas gratuitas para facilitar o teu dia.</p>
+
+<h1>CalculaFácil</h1>
+
+<p>Ferramentas gratuitas para facilitar o teu dia.</p>
+
 </header>
 
-<main>
+<div class="topbar">
 
-    <!-- CALCULADORA DE PERCENTAGEM -->
+<button onclick="irPara('inicio')">🏠 Início</button>
 
-    <div class="card">
+<button onclick="ativarEscuro()">🌙 Modo escuro</button>
 
-        <h2>Calculadora de Percentagem</h2>
+</div>
 
-        <label for="percentagem">Percentagem</label>
-        <input type="number" id="percentagem" placeholder="Ex: 20">
+<div class="search">
 
-        <label for="numero">Número</label>
-        <input type="number" id="numero" placeholder="Ex: 150">
+<input
+type="text"
+id="pesquisa"
+placeholder="🔎 Procurar uma ferramenta..."
+oninput="pesquisar()">
 
-        <button onclick="calcularPercentagem()">
-            Calcular
-        </button>
+</div>
 
-        <div class="resultado" id="resultadoPercentagem">
-            Resultado: —
-        </div>
-
-    </div>
+<main class="container" id="inicio">
 
 
-    <!-- CALCULADORA DE DESCONTO -->
+<!-- CALCULADORA -->
 
-    <div class="card">
+<section class="tool">
 
-        <h2>Calculadora de Desconto</h2>
+<h2>🧮 Calculadora</h2>
 
-        <label for="preco">Preço (€)</label>
-        <input type="number" id="preco" placeholder="Ex: 100">
+<div class="grid">
 
-        <label for="desconto">Desconto (%)</label>
-        <input type="number" id="desconto" placeholder="Ex: 20">
+<div>
 
-        <button onclick="calcularDesconto()">
-            Calcular desconto
-        </button>
+<label>Número 1</label>
 
-        <div class="resultado" id="resultadoDesconto">
-            Resultado: —
-        </div>
+<input type="number" id="calc1">
 
-    </div>
+</div>
+
+<div>
+
+<label>Número 2</label>
+
+<input type="number" id="calc2">
+
+</div>
+
+</div>
+
+<select id="operacao">
+
+<option value="+">Somar</option>
+<option value="-">Subtrair</option>
+<option value="*">Multiplicar</option>
+<option value="/">Dividir</option>
+
+</select>
+
+<button class="action" onclick="calculadora()">
+Calcular
+</button>
+
+<div class="result" id="resultadoCalc"></div>
+
+</section>
 
 
-    <!-- CALCULADORA DE MÉDIA -->
+<!-- PERCENTAGEM -->
 
-    <div class="card">
+<section class="tool">
 
-        <h2>Calculadora de Média</h2>
+<h2>📊 Calculadora de Percentagem</h2>
 
-        <p>
-            Introduz as notas que quiseres. Os campos que ficarem vazios serão ignorados.
-        </p>
+<label>Percentagem (%)</label>
 
-        <label for="nota1">Nota 1</label>
-        <input type="number" id="nota1" placeholder="Ex: 15">
+<input type="number" id="percentagem">
 
-        <label for="nota2">Nota 2</label>
-        <input type="number" id="nota2" placeholder="Ex: 17">
+<label>Número</label>
 
-        <label for="nota3">Nota 3</label>
-        <input type="number" id="nota3" placeholder="Ex: 13">
+<input type="number" id="numeroPercentagem">
 
-        <label for="nota4">Nota 4</label>
-        <input type="number" id="nota4" placeholder="Ex: 16">
+<button class="action" onclick="percentagem()">
+Calcular
+</button>
 
-        <label for="nota5">Nota 5</label>
-        <input type="number" id="nota5" placeholder="Ex: 14">
+<div class="result" id="resultadoPercentagem"></div>
 
-        <button onclick="calcularMedia()">
-            Calcular média
-        </button>
+</section>
 
-        <div class="resultado" id="resultadoMedia">
-            Média: —
-        </div>
 
-    </div>
+<!-- DESCONTO -->
+
+<section class="tool">
+
+<h2>💸 Calculadora de Desconto</h2>
+
+<label>Preço (€)</label>
+
+<input type="number" id="preco">
+
+<label>Desconto (%)</label>
+
+<input type="number" id="desconto">
+
+<button class="action" onclick="calcularDesconto()">
+Calcular desconto
+</button>
+
+<div class="result" id="resultadoDesconto"></div>
+
+</section>
+
+
+<!-- MÉDIA -->
+
+<section class="tool">
+
+<h2>🎓 Calculadora de Média</h2>
+
+<p>Coloca as notas. Os campos vazios serão ignorados.</p>
+
+<div class="grid">
+
+<input type="number" id="nota1" placeholder="Nota 1">
+<input type="number" id="nota2" placeholder="Nota 2">
+<input type="number" id="nota3" placeholder="Nota 3">
+<input type="number" id="nota4" placeholder="Nota 4">
+<input type="number" id="nota5" placeholder="Nota 5">
+<input type="number" id="nota6" placeholder="Nota 6">
+
+</div>
+
+<button class="action" onclick="media()">
+Calcular média
+</button>
+
+<div class="result" id="resultadoMedia"></div>
+
+</section>
+
+
+<!-- REGRA DE 3 -->
+
+<section class="tool">
+
+<h2>📐 Regra de 3</h2>
+
+<p>Se A corresponde a B, quanto corresponde C?</p>
+
+<div class="grid">
+
+<div>
+
+<label>A</label>
+<input type="number" id="regraA">
+
+</div>
+
+<div>
+
+<label>B</label>
+<input type="number" id="regraB">
+
+</div>
+
+<div>
+
+<label>C</label>
+<input type="number" id="regraC">
+
+</div>
+
+</div>
+
+<button class="action" onclick="regra3()">
+Calcular
+</button>
+
+<div class="result" id="resultadoRegra"></div>
+
+</section>
+
+
+<!-- IDADE -->
+
+<section class="tool">
+
+<h2>🎂 Calculadora de Idade</h2>
+
+<label>Data de nascimento</label>
+
+<input type="date" id="nascimento">
+
+<button class="action" onclick="idade()">
+Calcular idade
+</button>
+
+<div class="result" id="resultadoIdade"></div>
+
+</section>
+
+
+<!-- IMC -->
+
+<section class="tool">
+
+<h2>⚖️ Calculadora de IMC</h2>
+
+<label>Peso (kg)</label>
+
+<input type="number" id="peso">
+
+<label>Altura (metros)</label>
+
+<input type="number" step="0.01" id="altura">
+
+<button class="action" onclick="imc()">
+Calcular IMC
+</button>
+
+<div class="result" id="resultadoIMC"></div>
+
+</section>
+
+
+<!-- PALAVRAS -->
+
+<section class="tool">
+
+<h2>🔤 Contador de Palavras</h2>
+
+<textarea
+id="texto"
+placeholder="Escreve ou cola o teu texto aqui..."
+oninput="contarTexto()"></textarea>
+
+<div class="result" id="resultadoTexto">
+Palavras: 0 | Caracteres: 0 | Frases: 0
+</div>
+
+</section>
+
+
+<!-- CONVERSOR -->
+
+<section class="tool">
+
+<h2>📏 Conversor de Unidades</h2>
+
+<label>Valor</label>
+
+<input type="number" id="valorConversao">
+
+<label>Converter de</label>
+
+<select id="deUnidade">
+
+<option value="km">Quilómetros</option>
+<option value="m">Metros</option>
+<option value="cm">Centímetros</option>
+<option value="kg">Quilogramas</option>
+<option value="g">Gramas</option>
+<option value="l">Litros</option>
+<option value="ml">Mililitros</option>
+
+</select>
+
+<label>Para</label>
+
+<select id="paraUnidade">
+
+<option value="km">Quilómetros</option>
+<option value="m">Metros</option>
+<option value="cm">Centímetros</option>
+<option value="kg">Quilogramas</option>
+<option value="g">Gramas</option>
+<option value="l">Litros</option>
+<option value="ml">Mililitros</option>
+
+</select>
+
+<button class="action" onclick="converter()">
+Converter
+</button>
+
+<div class="result" id="resultadoConversao"></div>
+
+</section>
+
+
+<!-- GORJETA -->
+
+<section class="tool">
+
+<h2>💰 Calculadora de Gorjeta</h2>
+
+<label>Valor da conta (€)</label>
+
+<input type="number" id="conta">
+
+<label>Gorjeta (%)</label>
+
+<input type="number" id="gorjeta" value="10">
+
+<label>Número de pessoas</label>
+
+<input type="number" id="pessoas" value="1">
+
+<button class="action" onclick="calcularGorjeta()">
+Calcular
+</button>
+
+<div class="result" id="resultadoGorjeta"></div>
+
+</section>
+
+
+<!-- TEMPORIZADOR -->
+
+<section class="tool">
+
+<h2>⏱️ Temporizador</h2>
+
+<label>Minutos</label>
+
+<input type="number" id="minutosTimer" value="5">
+
+<button class="action" onclick="iniciarTimer()">
+Iniciar
+</button>
+
+<button class="action" onclick="pararTimer()">
+Parar
+</button>
+
+<div class="timer" id="timer">
+05:00
+</div>
+
+</section>
+
+
+<!-- PASSWORD -->
+
+<section class="tool">
+
+<h2>🔐 Gerador de Palavra-passe</h2>
+
+<label>Tamanho</label>
+
+<input
+type="number"
+id="tamanhoPassword"
+value="16"
+min="6"
+max="50">
+
+<button class="action" onclick="gerarPassword()">
+Gerar palavra-passe
+</button>
+
+<div class="result password" id="resultadoPassword"></div>
+
+</section>
+
+
+<!-- QR CODE -->
+
+<section class="tool">
+
+<h2>📱 Gerador de QR Code</h2>
+
+<p>Coloca um link ou texto para criar um QR Code.</p>
+
+<input
+type="text"
+id="textoQR"
+placeholder="https://exemplo.com">
+
+<button class="action" onclick="gerarQR()">
+Gerar QR Code
+</button>
+
+<div
+id="resultadoQR"
+style="text-align:center;margin-top:20px;">
+</div>
+
+</section>
+
 
 </main>
 
+
 <footer>
-    CalculaFácil — Ferramentas online gratuitas
+
+<p><strong>CalculaFácil</strong></p>
+
+<p>Ferramentas online gratuitas.</p>
+
+<p>© 2026 CalculaFácil</p>
+
 </footer>
 
 
 <script>
 
-    function calcularPercentagem() {
 
-        let percentagem = Number(
-            document.getElementById("percentagem").value
-        );
+/* PESQUISA */
 
-        let numero = Number(
-            document.getElementById("numero").value
-        );
+function pesquisar() {
 
-        if (!percentagem || !numero) {
-            document.getElementById("resultadoPercentagem").innerText =
-                "Preenche os dois campos.";
+    let pesquisa =
+    document.getElementById("pesquisa").value.toLowerCase();
+
+    let ferramentas =
+    document.querySelectorAll(".tool");
+
+    ferramentas.forEach(function(tool) {
+
+        let texto = tool.innerText.toLowerCase();
+
+        if (texto.includes(pesquisa)) {
+
+            tool.classList.remove("hidden");
+
+        } else {
+
+            tool.classList.add("hidden");
+
+        }
+
+    });
+
+}
+
+
+/* MODO ESCURO */
+
+function ativarEscuro() {
+
+    document.body.classList.toggle("dark");
+
+}
+
+
+/* IR PARA */
+
+function irPara(id) {
+
+    document.getElementById(id)
+    .scrollIntoView();
+
+}
+
+
+/* CALCULADORA */
+
+function calculadora() {
+
+    let a =
+    parseFloat(document.getElementById("calc1").value);
+
+    let b =
+    parseFloat(document.getElementById("calc2").value);
+
+    let op =
+    document.getElementById("operacao").value;
+
+    if (isNaN(a) || isNaN(b)) {
+
+        document.getElementById("resultadoCalc").innerText =
+        "Preenche os dois números.";
+
+        return;
+    }
+
+    let resultado;
+
+    if (op === "+") resultado = a + b;
+
+    if (op === "-") resultado = a - b;
+
+    if (op === "*") resultado = a * b;
+
+    if (op === "/") {
+
+        if (b === 0) {
+
+            document.getElementById("resultadoCalc").innerText =
+            "Não é possível dividir por zero.";
+
             return;
         }
 
-        let resultado = (percentagem / 100) * numero;
+        resultado = a / b;
+
+    }
+
+    document.getElementById("resultadoCalc").innerText =
+    "Resultado: " + resultado;
+
+}
+
+
+/* PERCENTAGEM */
+
+function percentagem() {
+
+    let p =
+    parseFloat(document.getElementById("percentagem").value);
+
+    let n =
+    parseFloat(document.getElementById("numeroPercentagem").value);
+
+    if (isNaN(p) || isNaN(n)) {
 
         document.getElementById("resultadoPercentagem").innerText =
-            "Resultado: " + resultado;
+        "Preenche os campos.";
+
+        return;
     }
 
+    let resultado = (p / 100) * n;
 
-    function calcularDesconto() {
+    document.getElementById("resultadoPercentagem").innerText =
+    p + "% de " + n + " = " + resultado;
 
-        let preco = Number(
-            document.getElementById("preco").value
-        );
+}
 
-        let desconto = Number(
-            document.getElementById("desconto").value
-        );
 
-        if (!preco || !desconto) {
-            document.getElementById("resultadoDesconto").innerText =
-                "Preenche os dois campos.";
-            return;
-        }
+/* DESCONTO */
 
-        let valorDesconto = (preco * desconto) / 100;
+function calcularDesconto() {
 
-        let precoFinal = preco - valorDesconto;
+    let preco =
+    parseFloat(document.getElementById("preco").value);
+
+    let desconto =
+    parseFloat(document.getElementById("desconto").value);
+
+    if (isNaN(preco) || isNaN(desconto)) {
 
         document.getElementById("resultadoDesconto").innerText =
-            "Desconto: " + valorDesconto.toFixed(2) +
-            " € | Preço final: " + precoFinal.toFixed(2) + " €";
+        "Preenche os campos.";
+
+        return;
     }
 
+    let valorDesconto =
+    preco * desconto / 100;
 
-    function calcularMedia() {
+    let final =
+    preco - valorDesconto;
 
-        let notas = [];
+    document.getElementById("resultadoDesconto").innerText =
+    "Desconto: " +
+    valorDesconto.toFixed(2) +
+    " € | Preço final: " +
+    final.toFixed(2) +
+    " €";
 
-        for (let i = 1; i <= 5; i++) {
+}
 
-            let valor = document.getElementById("nota" + i).value;
 
-            if (valor !== "") {
-                notas.push(Number(valor));
-            }
+/* MÉDIA */
+
+function media() {
+
+    let notas = [];
+
+    for (let i = 1; i <= 6; i++) {
+
+        let valor =
+        parseFloat(
+            document.getElementById("nota" + i).value
+        );
+
+        if (!isNaN(valor)) {
+
+            notas.push(valor);
+
         }
 
-        if (notas.length === 0) {
+    }
 
-            document.getElementById("resultadoMedia").innerText =
-                "Introduz pelo menos uma nota.";
-
-            return;
-        }
-
-        let soma = 0;
-
-        for (let nota of notas) {
-            soma += nota;
-        }
-
-        let media = soma / notas.length;
+    if (notas.length === 0) {
 
         document.getElementById("resultadoMedia").innerText =
-            "Média: " + media.toFixed(2);
+        "Introduz pelo menos uma nota.";
+
+        return;
     }
 
-</script>
+    let soma = 0;
 
-</body>
-</html>
+    notas.forEach(function(nota) {
+
+        soma += nota;
+
+    });
+
+    let resultado =
+    soma / notas.length;
+
+    document.getElementById("resultadoMedia").innerText =
+    "Média: " + resultado.toFixed(2);
+
+}
+
+
+/* REGRA DE 3 */
+
+function regra3() {
+
+    let a =
+    parseFloat(document.getElementById("regraA").value);
+
+    let b =
+    parseFloat(document.getElementById("regraB").value);
+
+    let c =
+    parseFloat(document.getElementById("regraC").value);
+
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+
+        document.getElementById("resultadoRegra").innerText =
+        "Preenche os três valores.";
+
+        return;
+    }
+
+    if (a === 0) {
+
+        document.getElementById("resultadoRegra").innerText =
+        "A não pode ser zero.";
+
+        return;
+    }
+
+    let resultado =
+    (b * c) / a;
+
+    document.getElementById("resultadoRegra").innerText =
+    "Resultado: " + resultado;
+
+}
+
+
+/* IDADE */
+
+function idade() {
+
+    let data =
+    document.getElementById("nascimento").value;
+
+    if (!data) {
+
+        document.getElementById("resultadoIdade").innerText =
+        "Escolhe a tua data de nascimento.";
+
+        return;
+    }
+
+    let nascimento =
+    new Date(data);
+
+    let hoje =
+    new Date();
+
+    let anos =
+    hoje.getFullYear() -
+    nascimento.getFullYear();
+
+    let mes =
+    hoje.getMonth() -
+    nascimento.getMonth();
+
+    if (
+        mes < 0 ||
+        (mes === 0 &&
+        hoje.getDate() < nascimento.getDate())
+    ) {
+
+        anos--;
+
+    }
+
+    document.getElementById("resultadoIdade").innerText =
+    "Idade: " + anos + " anos";
+
+}
+
+
+/* IMC */
+
+function imc() {
+
+    let peso =
+    parseFloat(document.getElementById("peso").value);
+
+    let altura =
+    parseFloat(document.getElementById("altura").value);
+
+    if (isNaN(peso) || isNaN(altura) || altura <= 0) {
+
+        document.getElementById("resultadoIMC").innerText =
+        "Preenche peso e altura corretamente.";
+
+        return;
+    }
+
+    let valor =
+    peso / (altura * altura);
+
+    let classificacao;
+
+    if (valor < 18.5) {
+
+        classificacao = "Abaixo do peso";
+
+    } else if (valor < 25) {
+
+        classificacao = "Peso normal";
+
+    } else if (valor < 30) {
+
+        classificacao = "Sobrepeso";
+
+    } else {
+
+        classificacao = "Obesidade";
+
+    }
+
+    document.getElementById("resultadoIMC").innerText =
+    "IMC: " +
+    valor.toFixed(2) +
+    " — " +
+    classificacao;
+
+}
+
+
+/* CONTADOR DE TEXTO */
+
+function contarTexto() {
+
+    let texto =
+    document.getElementById("texto").value;
+
+    let palavras =
+    texto.trim() === ""
+    ? 0
+    : texto.trim().split(/\s+/).length;
+
+    let caracteres =
+    texto.length;
+
+    let frases =
+    texto.trim() === ""
+    ? 0
+    : texto.split(/[.!?]+/).filter(function(frase) {
+
+        return frase.trim() !== "";
+
+    }).length;
+
+    document.getElementById("resultadoTexto").innerText =
+    "Palavras: " +
+    palavras +
+    " | Caracteres: " +
+    caracteres +
+    " | Frases: " +
+    frases;
+
+}
+
+
+/* CONVERSOR */
+
+function converter() {
+
+    let valor =
+    parseFloat(
+        document.getElementById("valorConversao").value
+    );
+
+    let de =
+    document.getElementById("deUnidade").value;
+
+    let para =
+    document.getElementById("paraUnidade").value;
+
+    if (isNaN(valor)) {
+
+        document.getElementById("resultadoConversao").innerText =
+        "Introduz um valor.";
+
+        return;
+    }
+
+    let fatores = {
+
+        km: 1000,
+        m: 1,
+        cm: 0.01,
+
+        kg: 1,
+        g: 0.001,
+
+        l: 1,
+        ml: 0.001
+
+    };
+
+    let grupos = {
+
+        km: "comprimento",
+        m: "comprimento",
+        cm: "comprimento",
+
+        kg: "peso",
+        g: "peso",
+
+        l: "volume",
+        ml: "volume"
+
+    };
+
+    if (grupos[de] !== grupos[para]) {
+
+        document.getElementById("resultadoConversao").innerText =
+        "Escolhe unidades da mesma categoria.";
+
+        return;
+    }
+
+    let resultado =
+    valor * fatores[de] / fatores[para];
+
+    document.getElementById("resultadoConversao").innerText =
+    valor +
+    " " +
+    de +
+    " = " +
+    resultado +
+    " " +
+    para;
+
+}
+
+
+/* GORJETA */
+
+function calcularGorjeta() {
+
+    let conta =
+    parseFloat(document.getElementById("conta").value);
+
+    let gorjeta =
+    parseFloat(document.getElementById("gorjeta").value);
+
+    let pessoas =
+    parseInt(document.getElementById("pessoas").value);
+
+    if (
+        isNaN(conta) ||
+        isNaN(gorjeta) ||
+        isNaN(pessoas) ||
+        pessoas <= 0
+    ) {
+
+        document.getElementById("resultadoGorjeta").innerText =
+        "Preenche os campos corretamente.";
+
+        return;
+    }
+
+    let valorGorjeta =
+    conta * gorjeta / 100;
+
+    let total =
+    conta + valorGorjeta;
+
+    let porPessoa =
+    total / pessoas;
+
+    document.getElementById("resultadoGorjeta").innerText =
+    "Gorjeta: " +
+    valorGorjeta.toFixed(2) +
+    " € | Total: " +
+    total.toFixed(2) +
+    " € | Cada pessoa: " +
+    porPessoa.toFixed(2) +
+    " €";
+
+}
+
+
+/* TIMER */
+
+let intervaloTimer;
+
+let segundosRestantes = 300;
+
+function atualizarTimer() {
+
+    let minutos =
+    Math.floor(segundosRestantes / 60);
+
+    let segundos =
+    segundosRestantes % 60;
+
+    document.getElementById("timer").innerText =
+    String(minutos).padStart(2, "0") +
+    ":" +
+    String(segundos).padStart(2, "0");
+
+}
+
+function iniciarTimer() {
+
+    clearInterval(intervaloTimer);
+
+    let minutos =
+    parseInt(
+        document.getElementById("minutosTimer").value
+    );
+
+    if (isNaN(minutos) || minutos < 1) {
+
+        minutos = 1;
+
+    }
+
+    segundosRestantes =
+    minutos * 60;
+
+    atualizarTimer();
+
+    intervaloTimer =
+    setInterval(function() {
+
+        segundosRestantes--;
+
+        atualizarTimer();
+
+        if (segundosRestantes <= 0) {
+
+            clearInterval(intervaloTimer);
+
+            alert("⏰ Tempo terminado!");
+
+        }
+
+    }, 1000);
+
+}
+
+function pararTimer() {
+
+    clearInterval(intervaloTimer);
+
+}
+
+
+/* PASSWORD */
+
+function gerarPassword() {
+
+    let tamanho =
+    parseInt(
+        document.getElementById("tamanhoPassword").value
+    );
+
+    if (isNaN(tamanho) || tamanho < 6) {
+
+        tamanho = 6;
+
+    }
+
+    if (tamanho > 50) {
+
+        tamanho = 50;
+
+    }
+
+    let caracteres =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*";
+
+    let password = "";
+
+    for (let i = 0; i < tamanho; i++) {
+
+        let indice =
+        Math.floor(
+            Math.random() * caracteres.length
+        );
+
+        password += caracteres[indice];
+
+    }
+
+    document.getElementById("resultadoPassword").innerText =
+    password;
+
+}
+
+
+/* QR CODE */
+
+function gerarQR() {
+
+    let texto =
+    document.getElementById("textoQR").value.trim();
+
+    let area =
+    document.getElementById("resultadoQR");
+
+    if (!texto) {
+
+        area.innerHTML =
+        "<p>Introduz um texto ou link.</p>";
+
+        return;
+    }
+
+    let url =
+    "https://api.qrserver.com/v1/create-qr-code/?siz
+
+                    
+            
