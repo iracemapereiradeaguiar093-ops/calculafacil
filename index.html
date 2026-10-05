@@ -1,110 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CalculaFácil</title>
+    <title>CalculaFácil - Calculadoras Online Gratuitas</title>
 
-<style>
-    * {
-        box-sizing: border-box;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f1f5f9;
-        color: #1e293b;
-    }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #172033;
+        }
 
-    header {
-        background: #2563eb;
-        color: white;
-        text-align: center;
-        padding: 30px 20px;
-    }
+        header {
+            background: #2864e8;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
 
-    header h1 {
-        margin: 0;
-        font-size: 36px;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 46px;
+        }
 
-    header p {
-        margin: 10px 0 0;
-        font-size: 17px;
-    }
+        header p {
+            font-size: 22px;
+            margin: 25px 0 0;
+        }
 
-    main {
-        max-width: 600px;
-        margin: 30px auto;
-        padding: 0 20px;
-    }
+        main {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-    .card {
-        background: white;
-        padding: 25px;
-        border-radius: 16px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
+        .card {
+            background: white;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
 
-    h2 {
-        margin-top: 0;
-        color: #1d4ed8;
-    }
+        h2 {
+            color: #2864e8;
+            font-size: 32px;
+            margin-top: 0;
+        }
 
-    label {
-        display: block;
-        margin-top: 18px;
-        margin-bottom: 6px;
-        font-weight: bold;
-    }
+        label {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 25px 0 8px;
+        }
 
-    input {
-        width: 100%;
-        padding: 14px;
-        font-size: 17px;
-        border: 1px solid #cbd5e1;
-        border-radius: 10px;
-    }
+        input {
+            width: 100%;
+            padding: 18px;
+            font-size: 20px;
+            border: 2px solid #d5dbe5;
+            border-radius: 18px;
+        }
 
-    input:focus {
-        outline: 2px solid #2563eb;
-    }
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 18px;
+            border: none;
+            border-radius: 18px;
+            background: #2864e8;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
 
-    button {
-        width: 100%;
-        margin-top: 20px;
-        padding: 14px;
-        font-size: 17px;
-        font-weight: bold;
-        color: white;
-        background: #2563eb;
-        border: none;
-        border-radius: 10px;
-    }
+        button:active {
+            transform: scale(0.98);
+        }
 
-    button:active {
-        transform: scale(0.98);
-    }
+        .resultado {
+            margin-top: 25px;
+            padding: 20px;
+            background: #edf4ff;
+            border-radius: 18px;
+            color: #2864e8;
+            font-size: 22px;
+            font-weight: bold;
+        }
 
-    #resultado {
-        margin-top: 20px;
-        padding: 15px;
-        background: #eff6ff;
-        border-radius: 10px;
-        font-size: 20px;
-        font-weight: bold;
-        color: #1d4ed8;
-    }
-
-    footer {
-        text-align: center;
-        padding: 30px;
-        color: #64748b;
-        font-size: 14px;
-    }
-</style>
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+        }
+    </style>
 </head>
 
 <body>
@@ -116,46 +113,109 @@
 
 <main>
 
+    <!-- CALCULADORA DE PERCENTAGEM -->
+
     <div class="card">
 
         <h2>Calculadora de Percentagem</h2>
 
         <label for="percentagem">Percentagem</label>
-        <input type="number" id="percentagem" placeholder="Ex.: 20">
+        <input type="number" id="percentagem" placeholder="Ex: 20">
 
         <label for="numero">Número</label>
-        <input type="number" id="numero" placeholder="Ex.: 150">
+        <input type="number" id="numero" placeholder="Ex: 150">
 
-        <button onclick="calcular()">Calcular</button>
+        <button onclick="calcularPercentagem()">
+            Calcular
+        </button>
 
-        <p id="resultado"></p>
+        <div class="resultado" id="resultadoPercentagem">
+            Resultado: —
+        </div>
+
+    </div>
+
+
+    <!-- CALCULADORA DE DESCONTO -->
+
+    <div class="card">
+
+        <h2>Calculadora de Desconto</h2>
+
+        <label for="preco">Preço (€)</label>
+        <input type="number" id="preco" placeholder="Ex: 100">
+
+        <label for="desconto">Desconto (%)</label>
+        <input type="number" id="desconto" placeholder="Ex: 20">
+
+        <button onclick="calcularDesconto()">
+            Calcular desconto
+        </button>
+
+        <div class="resultado" id="resultadoDesconto">
+            Resultado: —
+        </div>
 
     </div>
 
 </main>
 
 <footer>
-    © 2026 CalculaFácil — Ferramentas online gratuitas
+    CalculaFácil — Ferramentas online gratuitas
 </footer>
 
+
 <script>
-function calcular() {
 
-    let percentagem = document.getElementById("percentagem").value;
-    let numero = document.getElementById("numero").value;
+    function calcularPercentagem() {
 
-    if (percentagem === "" || numero === "") {
-        document.getElementById("resultado").innerText =
-            "Preenche os dois campos.";
-        return;
+        let percentagem = Number(
+            document.getElementById("percentagem").value
+        );
+
+        let numero = Number(
+            document.getElementById("numero").value
+        );
+
+        if (!percentagem || !numero) {
+            document.getElementById("resultadoPercentagem").innerText =
+                "Preenche os dois campos.";
+            return;
+        }
+
+        let resultado = (percentagem / 100) * numero;
+
+        document.getElementById("resultadoPercentagem").innerText =
+            "Resultado: " + resultado;
     }
 
-    let resultado = (percentagem / 100) * numero;
 
-    document.getElementById("resultado").innerText =
-        "Resultado: " + resultado;
-}
+    function calcularDesconto() {
+
+        let preco = Number(
+            document.getElementById("preco").value
+        );
+
+        let desconto = Number(
+            document.getElementById("desconto").value
+        );
+
+        if (!preco || !desconto) {
+            document.getElementById("resultadoDesconto").innerText =
+                "Preenche os dois campos.";
+            return;
+        }
+
+        let valorDesconto = (preco * desconto) / 100;
+
+        let precoFinal = preco - valorDesconto;
+
+        document.getElementById("resultadoDesconto").innerText =
+            "Desconto: " + valorDesconto.toFixed(2) +
+            " € | Preço final: " + precoFinal.toFixed(2) + " €";
+    }
+
 </script>
 
 </body>
-    </html>
+</html>
