@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalculaFácil</title>
+</head>
+
+<body>
+
+    <h1>CalculaFácil</h1>
+
+    <p>Ferramentas gratuitas para facilitar o teu dia.</p>
+
+    <h2>Calculadora de Percentagem</h2>
+
+    <input type="number" id="percentagem" placeholder="Percentagem">
+
+    <input type="number" id="numero" placeholder="Número">
+
+    <button onclick="calcular()">Calcular</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcular() {
+            let percentagem = document.getElementById("percentagem").value;
+            let numero = document.getElementById("numero").value;
+
+            let resultado = (percentagem / 100) * numero;
+
+            document.getElementById("resultado").innerText =
+                "Resultado: " + resultado;
+        }
+    </script>
+
+</body>
+</html>
